@@ -44,6 +44,27 @@ mklink requirements.txt targetのrequirements.txt
 
 ※上記で作成したファイルがLinux上から読み込んでも機能していることは使って確認済み。（DockerでVolume使った。
 
+### 注意
+
+git側でシンボリックリンクに対応する必要がある。  
+git clone 時に↓を付ける。
+
+```bash
+-c core.symlinks=true
+```
+
+もしくは、gitの設定（git config）として↓をtrueにする。
+
+```bash
+git config --global core.symlinks true
+```
+
+↓を実行して、 core.symlinks が true にならない場合、 global 以外にも↑と同じ設定をいれる。
+
+```bash
+git config --list
+```
+
 ### requirements.txt に記載されているライブラリの取り扱い
 
 #### ローカル開発時
